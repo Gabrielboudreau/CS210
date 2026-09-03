@@ -67,3 +67,16 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+# CLion per-user state and common generated build directories
+.idea/workspace.xml
+cmake-build-*/
+build/
+out/
+# CMake generated files if someone builds in the source directory
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+# Common operating-system clutter
+.DS_Store
+Thumbs.db
