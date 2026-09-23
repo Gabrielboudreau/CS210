@@ -8,7 +8,8 @@ Name exactly what each one frees, and name the two new calls back in the program
 for putting them on the heap in the first place
 
 #### Answer:
-
+The 2 delete calls free Node and data which is a value being stored. The data being referenced was created in main and would the
+new int(10) while node was created with new Node. 
 
 ## Question 2
 
@@ -18,7 +19,8 @@ from T data[CAPACITY] to T* data [CAPACITY] is what made a destructor necessary,
 would happen if you forgot to write one. Would you get a compiler error? Why or why not?
 
 #### Answer:
-
+We switched from holding the objects to a pointer to a new object. We need something to delete the objects themselves to
+not allow a memory leak. This is because destroying the pointer won't destroy the object. 
 
 ## Question 3
 
@@ -27,8 +29,9 @@ search() and addFront() both take a T*, but they treat that pointer completely d
 Explain the difference in terms of ownership: which one is allowed to delete what you hand it,
 and which one is never allowed to?
 
-#### Answer:
-
+#### Answer: 
+addFront stores the pointer inside the list while search uses it to reference. addFront can delete the pointer
+since it has stored it, while search cannot. 
 
 ## Question 4
 
