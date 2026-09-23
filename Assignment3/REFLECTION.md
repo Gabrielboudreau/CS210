@@ -31,7 +31,8 @@ and which one is never allowed to?
 
 #### Answer: 
 addFront stores the pointer inside the list while search uses it to reference. addFront can delete the pointer
-since it has stored it, while search cannot. 
+since it has stored it, while search cannot. This is described in "ownership"
+in your instructions. 
 
 ## Question 4
 
@@ -40,7 +41,11 @@ You swapped LinkedList<T> for ArrayList<T> inside makeList() and reran main.cpp 
 changing a single line there. What two mechanisms, by name, made that possible?
 
 #### Answer:
-
+**Inheritance** of List allows for both to run the same original class. I wasn't sure about the other one,
+so I looked it up. According to my result: **Polymorphism** — main.cpp works with the List<T>* interface and calls 
+functions like addFront(), remove(), and search() without needing to know whether the underlying object is an ArrayList<T> 
+or LinkedList<T>. I agree this makes sense as these functions are designed to be flexible and work in 
+a variety of subclasses. 
 
 ## Question 5
 
@@ -51,3 +56,7 @@ your own words and without copying the guide’s wording, the smallest example y
 of where leaving it out would cause a real problem
 
 #### Answer: 
+**virtual** is a key term I did not know about before this lesson. It tells the program to 
+use the version belonging to the object when the referenced function is called using a base class
+pointer, as opposed to using the pointer type. This helps LinkedList and ArrayList run their own 
+versions of search, print, etc.
