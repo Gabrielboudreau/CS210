@@ -28,7 +28,35 @@ int main() {
     more->print();
 
     // ---- Part 2: your Uno scene goes below ----
+    std::cout << std::endl << "== My scene ==" << std::endl;
+    std::unique_ptr<List<Player>> players = makeList<Player>();
+    players->addFront(new Player(1, "Gabe"));
+    players->addFront(new Player(2, "Nic"));
+    players->addFront(new Player(3, "Elliot"));
+    std::cout << "The first table forms:" << std::endl;
+    players->print();
 
+    std::cout << "Aiden joins!" << std::endl;
+    players->addAnywhere(1, new Player(4, "Aiden"));
+    players->print();
 
+    std::cout << "A Reverse card is played by Gabe!:" << std::endl;
+    players->reverse();
+    players->print();
+
+    std::cout << "Nic is out and leaves the table:" << std::endl;
+    players->deleteAnywhere(2);
+    players->print();
+
+    std::unique_ptr<List<Player>> secondTable = makeList<Player>();
+    secondTable->addFront(new Player(5, "Landon"));
+    secondTable->addFront(new Player(6, "Alex"));
+    std::cout << "A second table joins in:" << std::endl;
+    secondTable->print();
+    std::cout << "The tables combine!" << std::endl;
+    players->concat(secondTable.get());
+    players->print();
+    std::cout << "Second table after ownership transfers (empty):" << std::endl;
+    secondTable->print();
     return 0;
 }
